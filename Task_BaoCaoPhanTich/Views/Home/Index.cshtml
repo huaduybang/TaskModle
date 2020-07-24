@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="~/Assets/Boostrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Assets/css/Index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+
+        <table class="table table-bordered">
+            <thead class="color-table">
+                <tr>
+                    <th>Đại lý</th>
+                    <th>Thời gian</th>
+                    <th><button class="btn add">@Html.ActionLink("Thêm", "Input", "Input")</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+    @* // Hiển thị button sửa chạy đến controller có tên là Edit gọi phương thức Edit trong controller đó...*@
+                            <button  class="btn ">@Html.ActionLink("Sửa","Edit","Edit")</button> 
+                            <button type="button" class="btn ">@Html.ActionLink("Xoá", "Delete", "Delete")</button> 
+                            <button type="button" class="btn ">@Html.ActionLink("Xem Kết Quả", "Show", "Show")</button>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
