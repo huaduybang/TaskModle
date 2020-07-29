@@ -1,0 +1,43 @@
+﻿
+@model Task_BaoCaoPhanTich.User
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Assets/Boostrap/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Assets/css/Show.css" rel="stylesheet" />
+
+<div class="main">
+    <!-- ---------------------------- MAIN START---------------------------- -->
+    <div class="row title">
+        <div class="col-sm">
+            <h5>Yêu cầu khách hàng: <span>@Html.DisplayFor(model => model.TenDL)</span></h5>
+        </div>
+    </div>
+    <div class="row input">
+        @Html.DisplayFor(model => model.img1)
+        @*<img src="@Url.Content(@Model.img1)" alt="@Model.img1" />*@
+    </div>
+    <div class="row title">
+        <div class="col-sm">
+            <h5>Kết luận: <span>@Html.DisplayFor(model => model.KetLuan) </span></h5>
+        </div>
+    </div>
+    <div class="row input">
+        @Html.DisplayFor(model => model.img2)
+    </div>
+    <div class="row input">
+        @Html.DisplayFor(model => model.img2)
+    </div>
+    <!-- ---------------------------- MAIN END---------------------------- -->
+    <!-- ---------------------------- FOOTER START---------------------------- -->
+    <div class="row footer">
+        <button type="button" class="btn-success btn-lg" style="margin: 5px; border: none;">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+        </button>
+        <button type="button" class="btn-success btn-lg" style="margin: 5px; border: none;">
+            @Html.ActionLink("Back to List", "Index")
+        </button>
+    </div>
+    <!-- ---------------------------- FOOTER END---------------------------- -->
+</div>

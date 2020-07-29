@@ -1,0 +1,91 @@
+﻿@model Task_BaoCaoPhanTich.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <link href="~/Assets/Boostrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Assets/css/Input.css" rel="stylesheet" />
+
+    <div class="main">
+        <div class="row title">
+            <form>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>Tên Đại lý: </label>
+                    @Html.EditorFor(model => model.TenDL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenDL, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group" style="margin-left: 4px">
+                    <label>ID: </label>
+                    @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                </div>
+            </form>
+        </div>
+        <div class="row input">
+            <div action="/action_page.php">
+                @using (Html.BeginForm("Create", "Content", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);" />
+                }
+                @*@Html.EditorFor(model => model.img1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.img1, "", new { @class = "text-danger" })*@
+                @*<input class="btn btn-outline-primary" type="file" id="img" name="img" accept="image/*">
+        <div class="button">
+            <input class="btn btn-success" type="submit">
+            <input class="btn btn-warning" type="reset">
+        </div>*@
+            </div>
+        </div>
+        <div class="row title">
+            <div>
+                <div>
+                    <label>Nhập Kết luận: </label>
+                    @Html.EditorFor(model => model.KetLuan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.KetLuan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row input">
+            <div action="/action_page.php">
+                @*@Html.EditorFor(model => model.img2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.img2, "", new { @class = "text-danger" })*@
+                @*<input class="btn btn-outline-primary" type="file" id="img" name="img" accept="image/*">
+                    <div class="button">
+                        <input class="btn btn-success" type="submit">
+                        <input class="btn btn-warning" type="reset">
+                    </div>*@
+            </div>
+        </div>
+        <div class="row input">
+            <form action="/action_page.php">
+                @*<input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);" />*@
+                @Html.EditorFor(model => model.img2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.img2, "", new { @class = "text-danger" })
+                @*<input class="btn btn-outline-primary" type="file" id="img" name="img" accept="image/*">
+        <div class="button">
+            <input class="btn btn-success" type="submit">
+            <input class="btn btn-warning" type="reset">
+        </div>*@
+            </form>
+        </div>
+        <div class="row footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" /> |
+                <button type="button" class="btn-success btn-lg" style="margin: 5px; border: none;">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
